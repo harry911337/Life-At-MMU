@@ -31,18 +31,19 @@ export function Sidebar({ isMobileSidebarOpen, setMobileSidebarOpen }: SidebarPr
     label: string; 
     isActive: boolean;
   }) => (
-    <Link href={href}>
-      <a
-        className={cn(
-          "nav-item",
-          isActive && "nav-item-active"
-        )}
-        onClick={closeSidebarOnMobile}
-      >
-        <Icon className="w-5 h-5" />
-        <span>{label}</span>
-      </a>
-    </Link>
+    <div
+      className={cn(
+        "nav-item cursor-pointer",
+        isActive && "nav-item-active"
+      )}
+      onClick={() => {
+        closeSidebarOnMobile();
+        window.location.href = href;
+      }}
+    >
+      <Icon className="w-5 h-5" />
+      <span>{label}</span>
+    </div>
   );
 
   const SectionHeader = ({ label }: { label: string }) => (

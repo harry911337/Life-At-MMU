@@ -209,13 +209,13 @@ export default function AuthPage() {
                     </Form>
                     <div className="mt-4 text-center">
                       <span className="text-sm text-neutral-600">Don't have an account?</span>
-                      <Button
-                        variant="link"
-                        className="text-sm text-primary p-0 ml-1"
+                      <button
+                        type="button"
+                        className="text-sm text-primary font-semibold p-0 ml-1 cursor-pointer"
                         onClick={() => setActiveTab("register")}
                       >
                         Register
-                      </Button>
+                      </button>
                     </div>
                     <div className="mt-2 text-center">
                       <Button
@@ -356,13 +356,13 @@ export default function AuthPage() {
                     </Form>
                     <div className="mt-4 text-center">
                       <span className="text-sm text-neutral-600">Already have an account?</span>
-                      <Button
-                        variant="link"
-                        className="text-sm text-primary p-0 ml-1"
+                      <button
+                        type="button"
+                        className="text-sm text-primary font-semibold p-0 ml-1 cursor-pointer"
                         onClick={() => setActiveTab("login")}
                       >
                         Log In
-                      </Button>
+                      </button>
                     </div>
                   </CardContent>
                 </Card>

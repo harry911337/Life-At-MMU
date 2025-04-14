@@ -40,17 +40,18 @@ export default function HomePage() {
                   <CardTitle className="text-primary">Community Forum</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-3 pt-4">
-                  <Link href="/learning-port">
-                    <a className="block p-3 rounded-md hover:bg-neutral-50 border border-neutral-200">
-                      <div className="flex items-center">
-                        <GraduationCap className="text-primary mr-3 h-5 w-5" />
-                        <div>
-                          <h3 className="font-medium">Learning Port</h3>
-                          <p className="text-sm text-neutral-600">Share study materials and academic resources</p>
-                        </div>
+                  <div 
+                    className="block p-3 rounded-md hover:bg-neutral-50 border border-neutral-200 cursor-pointer"
+                    onClick={() => window.location.href = "/learning-port"}
+                  >
+                    <div className="flex items-center">
+                      <GraduationCap className="text-primary mr-3 h-5 w-5" />
+                      <div>
+                        <h3 className="font-medium">Learning Port</h3>
+                        <p className="text-sm text-neutral-600">Share study materials and academic resources</p>
                       </div>
-                    </a>
-                  </Link>
+                    </div>
+                  </div>
                   
                   <Link href="/cafe-talk">
                     <a className="block p-3 rounded-md hover:bg-neutral-50 border border-neutral-200">
