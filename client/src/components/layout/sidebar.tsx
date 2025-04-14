@@ -34,8 +34,8 @@ export function Sidebar({ isMobileSidebarOpen, setMobileSidebarOpen }: SidebarPr
     <Link href={href}>
       <a
         className={cn(
-          "flex items-center space-x-3 w-full px-3 py-2 text-left rounded-md text-neutral-700 hover:bg-neutral-100 hover:text-primary",
-          isActive && "bg-primary/10 text-primary font-medium"
+          "nav-item",
+          isActive && "nav-item-active"
         )}
         onClick={closeSidebarOnMobile}
       >
@@ -46,7 +46,7 @@ export function Sidebar({ isMobileSidebarOpen, setMobileSidebarOpen }: SidebarPr
   );
 
   const SectionHeader = ({ label }: { label: string }) => (
-    <h3 className="px-3 text-xs font-semibold text-neutral-500 uppercase tracking-wider mt-6 mb-2">
+    <h3 className="px-3 text-xs font-semibold bg-gradient-to-r from-primary/80 to-blue-700/80 bg-clip-text text-transparent uppercase tracking-wider mt-6 mb-2">
       {label}
     </h3>
   );
@@ -54,7 +54,7 @@ export function Sidebar({ isMobileSidebarOpen, setMobileSidebarOpen }: SidebarPr
   return (
     <aside
       className={cn(
-        "w-64 bg-white shadow-md z-30 fixed inset-y-0 left-0 transform transition duration-200 ease-in-out pt-16 lg:pt-0 lg:static lg:inset-auto",
+        "w-64 bg-white shadow-md z-30 fixed inset-y-0 left-0 transform transition duration-200 ease-in-out pt-16 lg:pt-0 lg:static lg:inset-auto border-r border-neutral-100",
         isMobileSidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
       )}
     >

@@ -11,3 +11,33 @@
     @apply font-sans antialiased bg-background text-foreground;
   }
 }
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary/90 shadow-sm;
+  }
+  
+  .btn-outline {
+    @apply border-primary text-primary hover:bg-primary hover:text-white;
+  }
+
+  .btn-accent {
+    @apply bg-red-600 text-white hover:bg-red-700 shadow-sm;
+  }
+
+  .card-hover {
+    @apply transition-all duration-200 hover:shadow-md hover:border-primary/30;
+  }
+  
+  .nav-item {
+    @apply flex items-center space-x-3 w-full px-3 py-2 text-left rounded-md text-neutral-700 hover:bg-primary/10 hover:text-primary transition-colors duration-200;
+  }
+  
+  .nav-item-active {
+    @apply bg-primary/10 text-primary font-medium;
+  }
+
+  .section-title {
+    @apply text-xl font-bold text-neutral-800 mb-4;
+  }
+}

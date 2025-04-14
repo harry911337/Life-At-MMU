@@ -41,19 +41,12 @@ export function Header({ toggleSidebar }: HeaderProps) {
             <Menu className="h-5 w-5" />
           </Button>
           <div className="flex items-center">
-            <svg 
-              width="32" 
-              height="32" 
-              viewBox="0 0 100 100" 
-              className="mr-3" 
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M15 15 L15 85 L25 85 L25 15 Z" fill="#1E3A8A"/>
-              <path d="M35 15 L35 85 L45 85 L45 15 Z" fill="#1E3A8A"/>
-              <path d="M55 15 L55 50 A20 20 0 0 0 95 50 L95 15 L85 15 L85 50 A10 10 0 0 1 65 50 L65 15 Z" fill="#1E3A8A"/>
-              <circle cx="60" cy="50" r="10" fill="#EF4444"/>
-            </svg>
-            <h1 className="text-xl font-bold text-primary hidden sm:block">Life at MMU</h1>
+            <img 
+              src="/src/assets/mmu-logo.png" 
+              alt="MMU Logo" 
+              className="h-8 mr-3"
+            />
+            <h1 className="text-xl font-bold bg-gradient-to-r from-primary to-blue-700 bg-clip-text text-transparent hidden sm:block">Life at MMU</h1>
           </div>
         </div>
 
@@ -103,12 +96,12 @@ export function Header({ toggleSidebar }: HeaderProps) {
           ) : (
             <div className="flex space-x-2">
               <Link href="/auth">
-                <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white">
+                <Button variant="outline" className="btn-outline">
                   Log In
                 </Button>
               </Link>
               <Link href="/auth?tab=register">
-                <Button className="bg-primary text-white hover:bg-primary/90">
+                <Button className="btn-primary">
                   Register
                 </Button>
               </Link>

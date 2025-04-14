@@ -108,19 +108,13 @@ export default function AuthPage() {
           <div className="w-full max-w-md">
             <div className="text-center mb-6">
               <div className="flex justify-center mb-4">
-                <svg 
-                  width="64" 
-                  height="64" 
-                  viewBox="0 0 100 100" 
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M15 15 L15 85 L25 85 L25 15 Z" fill="#1E3A8A"/>
-                  <path d="M35 15 L35 85 L45 85 L45 15 Z" fill="#1E3A8A"/>
-                  <path d="M55 15 L55 50 A20 20 0 0 0 95 50 L95 15 L85 15 L85 50 A10 10 0 0 1 65 50 L65 15 Z" fill="#1E3A8A"/>
-                  <circle cx="60" cy="50" r="10" fill="#EF4444"/>
-                </svg>
+                <img 
+                  src="/src/assets/mmu-logo.png" 
+                  alt="MMU Logo" 
+                  className="h-16"
+                />
               </div>
-              <h1 className="text-2xl font-bold text-primary">Life at MMU</h1>
+              <h1 className="text-2xl font-bold bg-gradient-to-r from-primary to-blue-700 bg-clip-text text-transparent">Life at MMU</h1>
               <p className="text-neutral-500 mt-1">Your campus community portal</p>
             </div>
 
@@ -184,7 +178,7 @@ export default function AuthPage() {
                         />
                         <Button 
                           type="submit" 
-                          className="w-full"
+                          className="w-full btn-primary"
                           disabled={loginMutation.isPending}
                         >
                           {loginMutation.isPending ? "Logging in..." : "Log In"}
