@@ -1,6 +1,20 @@
 import createMemoryStore from "memorystore";
 import session from "express-session";
 import { hashPassword } from "./auth";
+
+// Helper function to ensure optional fields have null value instead of undefined
+function ensureNullForUndefined<T>(obj: T): T {
+  if (typeof obj !== 'object' || obj === null) return obj;
+  
+  const result = { ...obj };
+  for (const [key, value] of Object.entries(result)) {
+    if (value === undefined) {
+      (result as any)[key] = null;
+    }
+  }
+  
+  return result;
+}
 import { 
   User, InsertUser,
   LearningMaterial, InsertLearningMaterial,
@@ -229,12 +243,12 @@ export class MemStorage implements IStorage {
   
   async createLearningMaterial(material: InsertLearningMaterial): Promise<LearningMaterial> {
     const id = this.materialIdCounter++;
-    const newMaterial: LearningMaterial = {
+    const newMaterial: LearningMaterial = ensureNullForUndefined({
       ...material,
       id,
       createdAt: new Date(),
       downloads: 0
-    };
+    });
     
     this.learningMaterials.set(id, newMaterial);
     return newMaterial;
@@ -338,12 +352,12 @@ export class MemStorage implements IStorage {
   
   async createGroupTask(task: InsertGroupTask): Promise<GroupTask> {
     const id = this.taskIdCounter++;
-    const newTask: GroupTask = {
+    const newTask: GroupTask = ensureNullForUndefined({
       ...task,
       id,
       completed: false,
       createdAt: new Date()
-    };
+    });
     
     this.groupTasks.set(id, newTask);
     return newTask;
@@ -362,12 +376,12 @@ export class MemStorage implements IStorage {
   
   async createCampusCat(cat: InsertCampusCat): Promise<CampusCat> {
     const id = this.catIdCounter++;
-    const newCat: CampusCat = {
+    const newCat: CampusCat = ensureNullForUndefined({
       ...cat,
       id,
       addedAt: new Date(),
       lastSeen: new Date()
-    };
+    });
     
     this.campusCats.set(id, newCat);
     return newCat;
@@ -381,12 +395,12 @@ export class MemStorage implements IStorage {
   
   async createCatPost(post: InsertCatPost): Promise<CatPost> {
     const id = this.catPostIdCounter++;
-    const newPost: CatPost = {
+    const newPost: CatPost = ensureNullForUndefined({
       ...post,
       id,
       createdAt: new Date(),
       likes: 0
-    };
+    });
     
     this.catPosts.set(id, newPost);
     return newPost;
@@ -407,11 +421,12 @@ export class MemStorage implements IStorage {
   
   async createCanteenOutlet(outlet: InsertCanteenOutlet): Promise<CanteenOutlet> {
     const id = this.outletIdCounter++;
-    const newOutlet: CanteenOutlet = {
+    const newOutlet: CanteenOutlet = ensureNullForUndefined({
       ...outlet,
       id,
-      addedAt: new Date()
-    };
+      addedAt: new Date(),
+      isOpen: outlet.isOpen ?? true // Default to true if not specified
+    });
     
     this.canteenOutlets.set(id, newOutlet);
     return newOutlet;
@@ -425,11 +440,11 @@ export class MemStorage implements IStorage {
   
   async createOutletRating(rating: InsertOutletRating): Promise<OutletRating> {
     const id = this.ratingIdCounter++;
-    const newRating: OutletRating = {
+    const newRating: OutletRating = ensureNullForUndefined({
       ...rating,
       id,
       createdAt: new Date()
-    };
+    });
     
     this.outletRatings.set(id, newRating);
     return newRating;
@@ -513,11 +528,13 @@ export class MemStorage implements IStorage {
   
   async createUserAchievement(userAchievement: InsertUserAchievement): Promise<UserAchievement> {
     const id = this.userAchievementIdCounter++;
-    const newUserAchievement: UserAchievement = {
+    const newUserAchievement: UserAchievement = ensureNullForUndefined({
       ...userAchievement,
       id,
+      completed: userAchievement.completed ?? false,
+      progress: userAchievement.progress ?? 0,
       completedAt: userAchievement.completed ? new Date() : null
-    };
+    });
     
     this.userAchievements.set(id, newUserAchievement);
     return newUserAchievement;
