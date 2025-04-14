@@ -1,6 +1,8 @@
-import createMemoryStore from "memorystore";
+import connectPg from "connect-pg-simple";
 import session from "express-session";
 import { hashPassword } from "./auth";
+import { db, pool } from "./db";
+import { eq, desc, asc, and, isNull } from "drizzle-orm";
 
 // Helper function to ensure optional fields have null value instead of undefined
 function ensureNullForUndefined<T>(obj: T): T {
@@ -28,6 +30,9 @@ import {
   CanteenOutlet, InsertCanteenOutlet,
   OutletRating, InsertOutletRating,
   Achievement, InsertAchievement,
+  users, learningMaterials, forumPosts, comments, workshopGroups,
+  groupMembers, groupTasks, campusCats, catPosts, canteenOutlets,
+  outletRatings, achievements,
   UserAchievement, InsertUserAchievement
 } from "@shared/schema";
 
@@ -541,4 +546,6 @@ export class MemStorage implements IStorage {
   }
 }
 
-export const storage = new MemStorage();
+// Import and use DatabaseStorage
+import { DatabaseStorage } from "./database-storage";
+export const storage = new DatabaseStorage();
