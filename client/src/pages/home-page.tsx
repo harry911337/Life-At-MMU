@@ -53,29 +53,31 @@ export default function HomePage() {
                     </div>
                   </div>
                   
-                  <Link href="/cafe-talk">
-                    <a className="block p-3 rounded-md hover:bg-neutral-50 border border-neutral-200">
-                      <div className="flex items-center">
-                        <Coffee className="text-orange-500 mr-3 h-5 w-5" />
-                        <div>
-                          <h3 className="font-medium">Cafe Talk</h3>
-                          <p className="text-sm text-neutral-600">Casual conversations about anything</p>
-                        </div>
+                  <div 
+                    className="block p-3 rounded-md hover:bg-neutral-50 border border-neutral-200 cursor-pointer"
+                    onClick={() => window.location.href = "/cafe-talk"}
+                  >
+                    <div className="flex items-center">
+                      <Coffee className="text-orange-500 mr-3 h-5 w-5" />
+                      <div>
+                        <h3 className="font-medium">Cafe Talk</h3>
+                        <p className="text-sm text-neutral-600">Casual conversations about anything</p> 
                       </div>
-                    </a>
-                  </Link>
+                    </div>
+                  </div>
                   
-                  <Link href="/workshop">
-                    <a className="block p-3 rounded-md hover:bg-neutral-50 border border-neutral-200">
-                      <div className="flex items-center">
-                        <Users className="text-primary mr-3 h-5 w-5" />
-                        <div>
-                          <h3 className="font-medium">Workshop</h3>
-                          <p className="text-sm text-neutral-600">Collaborate with your group mates</p>
-                        </div>
+                  <div 
+                    className="block p-3 rounded-md hover:bg-neutral-50 border border-neutral-200 cursor-pointer"
+                    onClick={() => window.location.href = "/workshop"}
+                  >
+                    <div className="flex items-center">
+                      <Users className="text-primary mr-3 h-5 w-5" />
+                      <div>
+                        <h3 className="font-medium">Workshop</h3>
+                        <p className="text-sm text-neutral-600">Collaborate with your group mates</p>
                       </div>
-                    </a>
-                  </Link>
+                    </div>
+                  </div>
                 </CardContent>
               </Card>
               
@@ -85,29 +87,31 @@ export default function HomePage() {
                   <CardTitle className="text-orange-500">Campus Cats Hub</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-3 pt-4">
-                  <Link href="/paw-index">
-                    <a className="block p-3 rounded-md hover:bg-neutral-50 border border-neutral-200">
-                      <div className="flex items-center">
-                        <PawPrint className="text-orange-500 mr-3 h-5 w-5" />
-                        <div>
-                          <h3 className="font-medium">PawPrint Index</h3>
-                          <p className="text-sm text-neutral-600">Catalog of all campus cats</p>
-                        </div>
+                  <div 
+                    className="block p-3 rounded-md hover:bg-neutral-50 border border-neutral-200 cursor-pointer"
+                    onClick={() => window.location.href = "/paw-index"}
+                  >
+                    <div className="flex items-center">
+                      <PawPrint className="text-orange-500 mr-3 h-5 w-5" />
+                      <div>
+                        <h3 className="font-medium">PawPrint Index</h3>
+                        <p className="text-sm text-neutral-600">Catalog of all campus cats</p>
                       </div>
-                    </a>
-                  </Link>
+                    </div>
+                  </div>
                   
-                  <Link href="/daily-feed">
-                    <a className="block p-3 rounded-md hover:bg-neutral-50 border border-neutral-200">
-                      <div className="flex items-center">
-                        <Camera className="text-orange-500 mr-3 h-5 w-5" />
-                        <div>
-                          <h3 className="font-medium">Daily Feed</h3>
-                          <p className="text-sm text-neutral-600">Share your cat encounters</p>
-                        </div>
+                  <div 
+                    className="block p-3 rounded-md hover:bg-neutral-50 border border-neutral-200 cursor-pointer"
+                    onClick={() => window.location.href = "/daily-feed"}
+                  >
+                    <div className="flex items-center">
+                      <Camera className="text-orange-500 mr-3 h-5 w-5" />
+                      <div>
+                        <h3 className="font-medium">Daily Feed</h3>
+                        <p className="text-sm text-neutral-600">Share your cat encounters</p>
                       </div>
-                    </a>
-                  </Link>
+                    </div>
+                  </div>
                 </CardContent>
               </Card>
               
@@ -117,17 +121,18 @@ export default function HomePage() {
                   <CardTitle className="text-red-500">Canteen Updates</CardTitle>
                 </CardHeader>
                 <CardContent className="pt-4">
-                  <Link href="/canteen-updates">
-                    <a className="block p-3 rounded-md hover:bg-neutral-50 border border-neutral-200">
-                      <div className="flex items-center">
-                        <Utensils className="text-red-500 mr-3 h-5 w-5" />
-                        <div>
-                          <h3 className="font-medium">Food Outlets</h3>
-                          <p className="text-sm text-neutral-600">Explore and rate campus food options</p>
-                        </div>
+                  <div 
+                    className="block p-3 rounded-md hover:bg-neutral-50 border border-neutral-200 cursor-pointer"
+                    onClick={() => window.location.href = "/canteen-updates"}
+                  >
+                    <div className="flex items-center">
+                      <Utensils className="text-red-500 mr-3 h-5 w-5" />
+                      <div>
+                        <h3 className="font-medium">Food Outlets</h3>
+                        <p className="text-sm text-neutral-600">Explore and rate campus food options</p>
                       </div>
-                    </a>
-                  </Link>
+                    </div>
+                  </div>
                 </CardContent>
               </Card>
             </div>

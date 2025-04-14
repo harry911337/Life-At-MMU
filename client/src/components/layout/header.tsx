@@ -71,18 +71,20 @@ export function Header({ toggleSidebar }: HeaderProps) {
                   </div>
                 </div>
                 <DropdownMenuSeparator />
-                <Link href="/profile">
-                  <DropdownMenuItem className="cursor-pointer">
-                    <User className="mr-2 h-4 w-4" />
-                    <span>My Profile</span>
-                  </DropdownMenuItem>
-                </Link>
-                <Link href="/achievements">
-                  <DropdownMenuItem className="cursor-pointer">
-                    <Trophy className="mr-2 h-4 w-4" />
-                    <span>Achievements</span>
-                  </DropdownMenuItem>
-                </Link>
+                <DropdownMenuItem 
+                  className="cursor-pointer"
+                  onClick={() => window.location.href = "/profile"}
+                >
+                  <User className="mr-2 h-4 w-4" />
+                  <span>My Profile</span>
+                </DropdownMenuItem>
+                <DropdownMenuItem 
+                  className="cursor-pointer"
+                  onClick={() => window.location.href = "/achievements"}
+                >
+                  <Trophy className="mr-2 h-4 w-4" />
+                  <span>Achievements</span>
+                </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem 
                   className="cursor-pointer text-red-600"
@@ -95,16 +97,19 @@ export function Header({ toggleSidebar }: HeaderProps) {
             </DropdownMenu>
           ) : (
             <div className="flex space-x-2">
-              <Link href="/auth">
-                <Button variant="outline" className="btn-outline">
-                  Log In
-                </Button>
-              </Link>
-              <Link href="/auth?tab=register">
-                <Button className="btn-primary">
-                  Register
-                </Button>
-              </Link>
+              <Button 
+                variant="outline" 
+                className="btn-outline"
+                onClick={() => window.location.href = "/auth"}
+              >
+                Log In
+              </Button>
+              <Button 
+                className="btn-primary"
+                onClick={() => window.location.href = "/auth?tab=register"}
+              >
+                Register
+              </Button>
             </div>
           )}
         </div>
