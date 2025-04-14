@@ -27,7 +27,7 @@ import {
 import { ZodError } from "zod";
 
 // Authentication middleware
-function isAuthenticated(req: Request, res: Response, next: () => void) {
+function isAuthenticated(req: Request, res: Response, next: any) {
   if (req.isAuthenticated()) {
     return next();
   }

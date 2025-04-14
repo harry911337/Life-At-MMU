@@ -1,4 +1,4 @@
-import * as memorystore from "memorystore";
+import createMemoryStore from "memorystore";
 import session from "express-session";
 import { hashPassword } from "./auth";
 import { 
@@ -140,7 +140,7 @@ export class MemStorage implements IStorage {
     this.userAchievementIdCounter = 1;
     
     // Initialize session store
-    const MemoryStore = memorystore.default(session);
+    const MemoryStore = createMemoryStore(session);
     this.sessionStore = new MemoryStore({
       checkPeriod: 86400000, // prune expired entries every 24h
     });
@@ -516,7 +516,7 @@ export class MemStorage implements IStorage {
     const newUserAchievement: UserAchievement = {
       ...userAchievement,
       id,
-      completedAt: userAchievement.completed ? new Date() : undefined
+      completedAt: userAchievement.completed ? new Date() : null
     };
     
     this.userAchievements.set(id, newUserAchievement);
