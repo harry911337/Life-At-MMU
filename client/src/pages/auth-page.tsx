@@ -24,7 +24,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Checkbox } from "@/components/ui/checkbox";
-import { GraduationCap, Coffee, Users, PawPrint, Camera, Utensils } from "lucide-react";
+import { GraduationCap, Coffee, Users, PawPrint, Camera, Utensils, Eye } from "lucide-react";
 
 // Login schema only needs username and password
 const loginSchema = z.object({
@@ -49,6 +49,9 @@ export default function AuthPage() {
   const urlParams = new URLSearchParams(window.location.search);
   const tabFromUrl = urlParams.get('tab');
   const [activeTab, setActiveTab] = useState<string>(tabFromUrl === 'register' ? 'register' : 'login');
+  const [showLoginPassword, setShowLoginPassword] = useState<boolean>(false);
+  const [showRegisterPassword, setShowRegisterPassword] = useState<boolean>(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState<boolean>(false);
   
   const loginForm = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),
@@ -154,9 +157,28 @@ export default function AuthPage() {
                           render={({ field }) => (
                             <FormItem>
                               <FormLabel>Password</FormLabel>
-                              <FormControl>
-                                <Input type="password" placeholder="Enter your password" {...field} />
-                              </FormControl>
+                              <div className="relative">
+                                <FormControl>
+                                  <Input 
+                                    type={showLoginPassword ? "text" : "password"} 
+                                    placeholder="Enter your password" 
+                                    {...field} 
+                                  />
+                                </FormControl>
+                                <button
+                                  type="button"
+                                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700"
+                                  onMouseDown={(e) => {
+                                    e.preventDefault();
+                                    setShowLoginPassword(true);
+                                  }}
+                                  onMouseUp={() => setShowLoginPassword(false)}
+                                  onMouseLeave={() => setShowLoginPassword(false)}
+                                  tabIndex={-1}
+                                >
+                                  <Eye className="h-4 w-4" />
+                                </button>
+                              </div>
                               <FormMessage />
                             </FormItem>
                           )}
@@ -265,9 +287,28 @@ export default function AuthPage() {
                           render={({ field }) => (
                             <FormItem>
                               <FormLabel>Password</FormLabel>
-                              <FormControl>
-                                <Input type="password" placeholder="Create a password" {...field} />
-                              </FormControl>
+                              <div className="relative">
+                                <FormControl>
+                                  <Input 
+                                    type={showRegisterPassword ? "text" : "password"} 
+                                    placeholder="Create a password" 
+                                    {...field} 
+                                  />
+                                </FormControl>
+                                <button
+                                  type="button"
+                                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700"
+                                  onMouseDown={(e) => {
+                                    e.preventDefault();
+                                    setShowRegisterPassword(true);
+                                  }}
+                                  onMouseUp={() => setShowRegisterPassword(false)}
+                                  onMouseLeave={() => setShowRegisterPassword(false)}
+                                  tabIndex={-1}
+                                >
+                                  <Eye className="h-4 w-4" />
+                                </button>
+                              </div>
                               <FormMessage />
                             </FormItem>
                           )}
@@ -278,9 +319,28 @@ export default function AuthPage() {
                           render={({ field }) => (
                             <FormItem>
                               <FormLabel>Confirm Password</FormLabel>
-                              <FormControl>
-                                <Input type="password" placeholder="Confirm your password" {...field} />
-                              </FormControl>
+                              <div className="relative">
+                                <FormControl>
+                                  <Input 
+                                    type={showConfirmPassword ? "text" : "password"} 
+                                    placeholder="Confirm your password" 
+                                    {...field} 
+                                  />
+                                </FormControl>
+                                <button
+                                  type="button"
+                                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700"
+                                  onMouseDown={(e) => {
+                                    e.preventDefault();
+                                    setShowConfirmPassword(true);
+                                  }}
+                                  onMouseUp={() => setShowConfirmPassword(false)}
+                                  onMouseLeave={() => setShowConfirmPassword(false)}
+                                  tabIndex={-1}
+                                >
+                                  <Eye className="h-4 w-4" />
+                                </button>
+                              </div>
                               <FormMessage />
                             </FormItem>
                           )}
